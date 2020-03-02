@@ -1,0 +1,57 @@
+.titulo{
+   margin: 0 auto;
+}
+.margen{
+   margin-top: 200px;
+   border: yellowgreen solid 2px;
+}
+.barraPrincipal{
+   background-color: #353535;
+   height: 200px;
+   display: flex;
+}
+
+.imagen-header{
+   height: 200px;
+   margin-left: 50px;
+
+}
+
+.usuario-header{
+   color: white;
+   margin-left: 100px;
+   font-size: 22px;
+   margin-top: 90px;
+   margin-right: 50px;
+}
+
+
+.barra-navegacion{
+   
+   background-color: black;
+   color: white;
+   border: black solid 2px;
+   margin-bottom: 50px;
+   
+}
+
+.elemento-nav{
+   color: white;
+}
+
+
+.alinear-nav{
+   margin-left: 55%;
+}
+
+.footer{
+   background-color: #353535;
+   color: white;
+   margin-top: 100px;
+   padding: 10px;
+}
+
+.Copyright{
+   display: flex;
+   justify-content: flex-end;
+}

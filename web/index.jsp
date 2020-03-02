@@ -22,7 +22,7 @@
     <body>
         <header>
             <div class="barraPrincipal">
-                <img src="C:/Users/juanm/Documents/NetBeansProjects/WebApplication1/src/java/img/Logo-header.jpg" alt="LogoBlackPanthers" class="imagen-header">
+                <img src="img/Logo-header.jpg" alt="LogoBlackPanthers" class="imagen-header">
                 <p class="usuario-header"> <i class="far fa-user-circle"></i> Nombre Usuario</p>
             </div>
             <nav class="barra-navegacion navbar navbar-expand-lg navbar-dark ">

@@ -1,5 +1,4 @@
 package MODEL.GestionRutinas;
-
 public class FabricaConcretaRutinaPersonalizada extends FabricaAbstractaRutina {
 
     private RutinaPersonalizada rutinaPersonalizada;

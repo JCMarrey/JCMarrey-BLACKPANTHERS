@@ -2,28 +2,46 @@
 package MODEL.GestionRutinas;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+
+
 
 public class GestorRutina {
-    private static RutinaGeneral rutinaGeneral;
-    private static RutinaGeneral rutinaPersonal;
+    private static Rutina rutinaGeneral;
+    private static Rutina rutinaPersonal;
     
-    public  boolean agregarRutina(ArrayList <Ejercicio> ejercicios){
-        //primero construyo mi rutina y luego ya la agrego a la bd
-        System.out.println("¿Qué tipo de Rutina deseas agregar?");
-        InputStreamReader opcion = new InputStreamReader(System.in); //lee catacteres sueltos
-        BufferedReader opcionF = new BufferedReader(opcion); //ya lee todo completo
-        String rutina1= "RutinaGeneral";
-        if(rutina1.equalsIgnoreCase(opcionF.toString())){
-            FabricaConcretaRutinaGeneral rutinaG= new FabricaConcretaRutinaGeneral();
-            //falta que eliga el tipo de rutina agregar.
-            rutinaG.creaRutina("Pierna"); //en este caso eligio perina
-            rutinaG.getRutina(); //Se obtiene ya  nuestra rutina nueva
-            //se manda a la BD
-        }
-        else{
-            FabricaConcretaRutinaPersonalizada rutinaP= new FabricaConcretaRutinaPersonalizada();
+    public GestorRutina(){
+        
+    }
+    
+    public  boolean agregarRutina(){
+        try {
+            //primero construyo mi rutina y luego ya la agrego a la bd
+            BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("¿Qué tipo de Rutina deseas agregar?");
+            String opcionF= teclado.readLine();
+            
+            String rutina= "RutinaGeneral";
+            if(rutina.equalsIgnoreCase(opcionF)){
+                
+                FabricaConcretaRutinaGeneral rutinaG= new FabricaConcretaRutinaGeneral();
+                //falta que eliga el tipo de rutina agregar.
+                rutinaG.creaRutina(rutina); //en este caso eligio perina
+                System.out.println("Ya se creo la rutina :v?");
+                
+                
+                rutinaGeneral=rutinaG.getRutina(); //Se obtiene ya  nuestra rutina nueva
+                rutinaGeneral.visualizaRutina();
+                
+                //se manda a la BD
+            }
+            else{
+                FabricaConcretaRutinaPersonalizada rutinaP= new FabricaConcretaRutinaPersonalizada();
+            }
+            
+        } catch (IOException ex) {
+           ex.printStackTrace(System.out);
         }
         return true;
     }

@@ -40,7 +40,7 @@ public class ServletRutinas extends HttpServlet {
             switch(select)
             {
              case 1 :
-               request.getRequestDispatcher("/Cartelera.jsp").forward(request, response);
+               request.getRequestDispatcher("/GestionRutinas/GUI_AgregarRutinaG.jsp").forward(request, response);
              break;
              case 2 :
                  System.out.println("entre?");

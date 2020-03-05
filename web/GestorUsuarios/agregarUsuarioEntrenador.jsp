@@ -19,7 +19,7 @@
         <link href="CSS/estilos.css" rel="stylesheet" type="text/css">        
     </head>
     <body>        
-        <%@ page import="CONTROL.ServletGUIAgregarUsuario" %>
+        <%@ page import="CONTROL.ServletGUIAgregarUsuarioEntrenador" %>
                 
         <header>
             <div class="barraPrincipal">
@@ -60,6 +60,8 @@
                 <label for="lname">Correo electrónico:</label>
                 <input type="text" id="correo" name="correo"><br><br>
                 <label for="lname">Contraseña de acceso:</label>
+                <label for="lname">Tipo de Usuario:</label>
+                <input type="text" id="tipoU" name="tipoU" value="Entrenador" ><br><br>
                 <input type="password" id="password" name="password"><br><br>                              
                  <label for="fname">Tipo de entrenador:</label>
                 <select name="tipoEntrenador">

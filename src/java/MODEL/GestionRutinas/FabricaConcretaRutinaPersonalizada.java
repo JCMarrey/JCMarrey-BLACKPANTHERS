@@ -3,7 +3,7 @@ public class FabricaConcretaRutinaPersonalizada extends FabricaAbstractaRutina {
 
     private RutinaPersonalizada rutinaPersonalizada;
     
-    @Override
+    
     public void creaRutina(String tipoRutina) {
         switch (tipoRutina) {
             //FALTA INSTANCIAR BIEN LAS CLASES (colocar atributos necesarios)
@@ -34,5 +34,15 @@ public class FabricaConcretaRutinaPersonalizada extends FabricaAbstractaRutina {
     @Override
     public Rutina getRutina() {
         return rutinaPersonalizada;
+    }
+
+    @Override
+    public Rutina agregarEjerciciosRutina(Rutina r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void creaRutina(Rutina r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

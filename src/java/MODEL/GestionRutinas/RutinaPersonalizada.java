@@ -15,15 +15,15 @@ public class RutinaPersonalizada extends Rutina {
     }
 
     @Override
-    public void visualizaRutina() {
+    public void visualizaRutina(ArrayList<Ejercicio> e, Rutina rutina) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
 
     @Override
-    public Rutina agregarRutina(ArrayList<Ejercicio> e,String tipoR) {
+    public Ejercicio agregarEjercicios() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
     
 }

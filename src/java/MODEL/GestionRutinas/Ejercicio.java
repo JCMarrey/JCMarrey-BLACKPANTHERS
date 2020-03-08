@@ -7,11 +7,31 @@ import java.io.InputStreamReader;
 public class Ejercicio {
 
     private String nombreEjercicio;
-    private byte numeroSeries;
-    private byte numeroRepeticiones;
+    private int numeroSeries;
+    private int numeroRepeticiones;
     private float tiempoDescanso;
     private String inforExtra;
     private String foto;
+    private String nombreRutina;
+
+    public Ejercicio(String nombreEjercicio, int numeroSeries, int numeroRepeticiones, float tiempoDescanso, String inforExtra, String foto, String nombreRutina) {
+        this.nombreEjercicio = nombreEjercicio;
+        this.numeroSeries = numeroSeries;
+        this.numeroRepeticiones = numeroRepeticiones;
+        this.tiempoDescanso = tiempoDescanso;
+        this.inforExtra = inforExtra;
+        this.foto = foto;
+        this.nombreRutina = nombreRutina;
+    }
+
+    public String getNombreRutina() {
+        return nombreRutina;
+    }
+
+    public void setNombreRutina(String nombreRutina) {
+        this.nombreRutina = nombreRutina;
+    }
+    
 
     public Ejercicio(String nombreEjercicio, byte numeroSeries, byte numeroRepeticiones, float tiempoDescanso, String inforExtra) {
         this.nombreEjercicio = nombreEjercicio;
@@ -33,19 +53,19 @@ public class Ejercicio {
         this.nombreEjercicio = nombreEjercicio;
     }
 
-    public byte getNumeroSeries() {
+    public int getNumeroSeries() {
         return numeroSeries;
     }
 
-    public void setNumeroSeries(byte numeroSeries) {
+    public void setNumeroSeries(int numeroSeries) {
         this.numeroSeries = numeroSeries;
     }
 
-    public byte getNumeroRepeticiones() {
+    public int getNumeroRepeticiones() {
         return numeroRepeticiones;
     }
 
-    public void setNumeroRepeticiones(byte numeroRepeticiones) {
+    public void setNumeroRepeticiones(int numeroRepeticiones) {
         this.numeroRepeticiones = numeroRepeticiones;
     }
 
@@ -81,10 +101,10 @@ public class Ejercicio {
             String nombreEjer = teclado.readLine();
             
             System.out.println("Número de series:");
-            byte numSeries = Byte.parseByte(teclado.readLine());
+            int numSeries = Integer.parseInt(teclado.readLine());
             
             System.out.println("Número de repeticiones:");
-            byte numeroRep= Byte.parseByte(teclado.readLine());
+            int numeroRep=Integer.parseInt(teclado.readLine());
             
             System.out.println("Tiempo de descanso:");
             float tiempoD = Float.parseFloat(teclado.readLine());
@@ -93,8 +113,16 @@ public class Ejercicio {
             String infoEx = "";
             infoEx += teclado.readLine();
             
+            System.out.println("inserte una imagen:");
+            String imagen = "";
+            imagen += teclado.readLine();
+            
+            System.out.println("Nombre de la rutina a la que pertenece:");
+            String nombreR = "";
+            nombreR += teclado.readLine();
+            
             //una vez leído todos los datos se instancia el nuevo ejercicio y se agrega al arrayList
-            ejercicioNuevo = new Ejercicio(nombreEjer, numSeries, numeroRep, tiempoD, infoEx);
+            ejercicioNuevo = new Ejercicio(nombreEjer, numSeries, numeroRep, tiempoD, infoEx,imagen,nombreR);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }

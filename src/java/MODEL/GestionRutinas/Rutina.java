@@ -6,6 +6,6 @@ import java.util.ArrayList;
 
 
 abstract public class Rutina {        
-    abstract public void visualizaRutina();
-    abstract public Rutina agregarRutina(ArrayList <Ejercicio> e,String tipoR);
+    abstract public void visualizaRutina(ArrayList <Ejercicio> e,Rutina rutina);
+    abstract public Ejercicio agregarEjercicios();
 }

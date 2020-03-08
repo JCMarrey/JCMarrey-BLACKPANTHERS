@@ -16,29 +16,39 @@
     <body>
         <!--llamar al header-->
         <jsp:include page="/WEB-INF/paginas/comunes/headerPersonal.jsp"/>
+        
 
 
+        <!--
         <section id="actions" class="py-2 mb-2 bg-light">
             <div class="form-row">
                 <div class="col-md-2 mb-3">
                     <a href="#" class="btn btn-primary btn-block" 
                        data-toggle="modal" data-target="#agregarEjercicioModal">
                         <!--agregar formulario
-                         <i class="fas-plus"></i>-->Agregar Ejercicio
+                         <i class="fas-plus"></i>
                     </a>
                 </div>
             </div>
         </section>
-        <jsp:include page="/GestionRutinas/AgregarEjercicio.jsp"/>
-
-        <form name="formAgregarRGeneral" action="#" method="post">
+        -->
+        
+        <h2 style="text-align: center" >Rutina General</h2>
+        
+        <!--se manda al servlet rutinas-->
+        <form class="container" name="formAgregarRGeneral" action="/BLACKPANTHERS_DSAGE/ServletRutinas" method="post" style="width: 800px;height:600px">
             <div class="form-group">
                 <label for="nombreRutina" text-align="center" >Nombre de la Rutina</label>
-                <input class="col-md-12"type="text"  name="nombreRutina" >
+                <input class="col-md-12"type="text"  name="nombreRutina" required>
             </div>
+             <div class="form-group">
+                <label for="seccionR" text-align="center" >Sección de la rutina</label>
+                <input class="col-md-12"type="text"  name="seccionR" value="Rutina General" readonly="readonly" required>
+            </div>
+            
             <div class="form-group">
                 <label for="tipoEjercicio"> Tipo de Rutina</label>
-                <select class="col-md-12" name="tipoRutina">
+                <select class="col-md-12" name="tipoRutina" required>
                     <option value="Pierna">Pierna</option>
                     <option value="Gluteos">Glúteos</option>
                     <option value="Espalda">Espalda</option>
@@ -48,7 +58,9 @@
                     <option value="Hombros">Hombros</option>
                 </select>
             </div>
-
+            
+            
+<!--
             <div class="form-group">
                 <div class="col-md-12">
                 <div class="card">
@@ -83,11 +95,13 @@
                                             </tr>
                                 </c:forEach> 
                         </tbody>
-                        -->
+                        
                     </table>
                 </div>
             </div>
             </div>
+                                                       
+                                                       -->
             
             <div class="form-group">
                 <label for="imagenRutina">Cargar Imagen Rutina</label>

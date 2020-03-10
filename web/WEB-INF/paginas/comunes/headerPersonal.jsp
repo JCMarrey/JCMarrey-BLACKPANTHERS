@@ -65,9 +65,12 @@
                             Usuarios <!--Gestor Inventario-->
                         </a>
                         <div class="dropdown-menu" aria-labelledby="Nav-GestorInventario">
-                            <a class="dropdown-item" href="#">Agregar un nuevo usuario</a>
-                            <a class="dropdown-item" href="#">Actualizar usuarios</a> <!--Modificar-->
-                            <a class="dropdown-item" href="#">Eliminar usuario</a>
+                            <a class="dropdown-item" href="agregarUsuarioAdmin.jsp">Agregar Administrador</a>
+                            <a class="dropdown-item" href="modificarUsuarioAdmin.jsp">Modificar Administrador</a>
+                            <a class="dropdown-item" href="eliminarUsuarioAdmin.jsp">Eliminar Administrador</a>
+                            <a class="dropdown-item" href="#">Agregar Entrenador</a>
+                            <a class="dropdown-item" href="#">Modificar Entrenador</a>
+                            <a class="dropdown-item" href="#">Eliminar Entrenador</a>
                         </div>
                     </li>
                 </ul>

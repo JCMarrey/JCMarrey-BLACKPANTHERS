@@ -17,13 +17,13 @@ public class TablaRutinas {
     //comenzamos con los métodos
     ResultSet rs;
     //llamamos a nuestra clase Conexión para poder realizar conexión a bd
-    Conexion cn = new Conexion();
+    ConexionUsuarios cn = new ConexionUsuarios();
     Connection conec = null;
 
     public boolean agregarRutinaGeneral(RutinaGeneral rutinaG) {
 
         PreparedStatement ps = null;
-        conec = Conexion.getCon();
+        conec = ConexionUsuarios.getCon();
 
         String sql = "INSERT INTO RutinaGeneral (nombreRutina,seccion,tipoRutina,imagen,comentarios) VALUES(?,?,?,?,?)";
         //se mandan los datos
@@ -56,7 +56,7 @@ public class TablaRutinas {
     public boolean eliminarRutinaGeneral(RutinaGeneral rutinaG) {
 
         PreparedStatement ps = null; //mi consulta y usar la bd para enviar datos
-        conec = Conexion.getCon();
+        conec = ConexionUsuarios.getCon();
 
         String sql = "DELETE  FROM RutinaGeneral WHERE nombreRutina=?";
         //puede ser con eel id del usuario que sera invisible
@@ -83,7 +83,7 @@ public class TablaRutinas {
     public boolean agregarEjercicio(Ejercicio ejercicio) {
 
         PreparedStatement ps = null;
-        conec = Conexion.getCon();
+        conec = ConexionUsuarios.getCon();
 
         String sql = "INSERT INTO ejercicios (nombreEjercicio,numeroSeries,numeroRepeticiones,tiempoDescanso,comentarios,imagen,RutinaGeneral_nombreRutina) VALUES(?,?,?,?,?,?,?)";
         //se mandan los datos
@@ -117,7 +117,7 @@ public class TablaRutinas {
 
     public boolean buscarRutinaGeneral(RutinaGeneral rutinaG) {
         PreparedStatement ps = null; //mi consulta y usar la bd para enviar datos
-        conec = Conexion.getCon();
+        conec = ConexionUsuarios.getCon();
         rs = null;
         String sql = "SELECT*FROM RutinaGeneral WHERE nombreRutina=?";
 

@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package CONTROL;
+package CONTROL.Usuarios;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,15 +7,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import MODEL.GestionUsuarios.Entrenador;
 import MODEL.GestionUsuarios.Usuario;
+import MODEL.GestionUsuarios.Administrador;
 
 /**
  *
  * @author Alex Lira
  */
-@WebServlet(name = "ServletGUIAgregarUsuarioEntrenador", urlPatterns = {"/ServletGUIAgregarUsuarioEntrenador"})
-public class ServletGUIAgregarUsuarioEntrenador extends HttpServlet {
+@WebServlet(name = "ServletAgregarUsuarioAdmin", urlPatterns = {"/ServletAgregarUsuarioAdmin"})
+public class ServletAgregarUsuarioAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -61,19 +56,18 @@ public class ServletGUIAgregarUsuarioEntrenador extends HttpServlet {
             String correo= request.getParameter("correo");
             String password= request.getParameter("password");
             String tipoU= request.getParameter("tipoU");            
-            String tipoE= request.getParameter("tipoE");            
             String direccion= request.getParameter("direccion");
             String telefono= request.getParameter("telefono");            
             double tel=Double.parseDouble(telefono);
             
-            //SE CREA UNA INSTANCIA DE LA CLASE "Entrenador" Y SE INICIALIZA CON 
-            //LOS DATOS RECUPERADOS PREVIAMENTE DEL OBJETO "request"                
-            Entrenador usuarioEntrena = new Entrenador (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU, direccion, tel, tipoE);                        
-            Usuario usuario = new Usuario (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU);            
+            //SE CREA UNA INSTANCIA DE LA CLASE "Administrador" Y SE INICIALIZA CON 
+            //LOS DATOS RECUPERADOS PREVIAMENTE DEL OBJETO "request"
+            Administrador usuarioAdmin = new Administrador (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU, direccion, tel);
+            Usuario usuario = new Usuario (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU);
             
-            //EN EL OBJETO  "request" SE ALMACENA EL OBJETO "datosEntrenador" EN EL ATRIBUTO
+            //EN EL OBJETO  "request" SE ALMACENA EL OBJETO "datosAdministrador y datosEntrenador" EN EL ATRIBUTO
             //NOMBRADO "usuarioAdmin y usuarioEntrena", EL CUAL SE CREA EN ESE MOMENTO
-            request.setAttribute("datosEntrenador",usuarioEntrena);            
+            request.setAttribute("datosAdministrador",usuarioAdmin);            
             request.setAttribute("datosUsuario",usuario);
             
             //AHORA SE HACE UN REENVÍO (forward) DE LOS OBJETOS "request" Y "response"

@@ -92,6 +92,7 @@ public class ServletRutinas extends HttpServlet {
                 String imagenRR = request.getParameter("imagenRutina");
                 String comentariosR = request.getParameter("comentarios");
                 
+                /*
                 
                 rutinaGeneral2.setIdRutina(idRutina);
                 rutinaGeneral2.setNombre(nombreRR);
@@ -99,8 +100,8 @@ public class ServletRutinas extends HttpServlet {
                 rutinaGeneral2.setTipoRutina(tipoEjercicioR);
                 rutinaGeneral2.setImagen(imagenRR);
                 rutinaGeneral2.setComentarios(comentariosR);
-                
-                //rutinaGeneral2 = new RutinaGeneral(nombreRR, tipoEjercicioR, seccionR, imagenRR, comentariosR,idRutina);
+                */
+                rutinaGeneral2 = new RutinaGeneral(nombreRR, tipoEjercicioR, seccionR, imagenRR, comentariosR);
                
                 //ya recuperamos lo que acaba de ingresar el usuario
                 //Crear instancia de mi RutinaGeneral;

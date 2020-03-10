@@ -14,6 +14,24 @@ public class RutinaGeneral extends Rutina {
     private String comentarios;
     private Ejercicio ejercicio;
 
+    public RutinaGeneral(String nombre, String tipoRutina, String seccion, String imagen, String comentarios, String idRutina) {
+        this.nombre = nombre;
+        this.tipoRutina = tipoRutina;
+        this.seccion = seccion;
+        this.imagen = imagen;
+        this.comentarios = comentarios;
+        this.idRutina = idRutina;
+    }
+
+    public String getIdRutina() {
+        return idRutina;
+    }
+
+    public void setIdRutina(String idRutina) {
+        this.idRutina = idRutina;
+    }
+    private String idRutina;
+
     public RutinaGeneral(String nombre, String tipoRutina, String seccion, String imagen, String comentarios) {
         this.nombre = nombre;
         this.tipoRutina = tipoRutina;

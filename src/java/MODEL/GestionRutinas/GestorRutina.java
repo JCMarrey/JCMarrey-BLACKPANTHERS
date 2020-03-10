@@ -69,6 +69,10 @@ public class GestorRutina {
             return false;
         }*/
         
+        System.out.println("Nombre a modificar: " +rutinaG.getNombre());
+        System.out.println("Tipo a modificar: " + rutinaG.getTipoRutina());
+        System.out.println("ID para modificar:" + nombR);
+        
         if(tr.modificarRutinaGeneral2(rutinaG, nombR)){
             System.out.println("estamos en el gestor y a ver si si se modifica :V");
             return true;

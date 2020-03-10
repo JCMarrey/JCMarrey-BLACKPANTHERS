@@ -22,7 +22,6 @@
 
             <jsp:include page="/WEB-INF/paginas/comunes/botonesNavegacionEdicion.jsp"/>   
 
-
             <section id="details">
                 <div class="container">
                     <div class="row">

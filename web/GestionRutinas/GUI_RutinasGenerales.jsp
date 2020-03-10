@@ -14,7 +14,7 @@
     </head>
     <body>
         <!--headerPersonal entrenador/administrador-->
-        <jsp:include page="/WEB-INF/paginas/comunes/headerPersonal.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/headerEntrenador.jsp"/>
 
         <div class="container">
             <div class="row">
@@ -31,10 +31,10 @@
             </div>
 
         </div>
-
-
-        <jsp:include page="ListadoDeRutinas.jsp"/>
-
+        
+        
+        
+        
         <!--FooterGeneral-->
         <jsp:include page="/WEB-INF/paginas/comunes/footer.jsp"/>
     </body>

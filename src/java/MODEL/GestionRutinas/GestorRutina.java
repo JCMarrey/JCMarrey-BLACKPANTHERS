@@ -21,31 +21,8 @@ public class GestorRutina {
         
     }
     
-    public void menu(){
-        /*System.out.println("Qué desea hacer? \n1: Agregar Rutina \n2:Agregar un ejercicio");
-        try {
-            byte opcion=Byte.parseByte(teclado.readLine());
-            switch(opcion){
-                case 1: agregarRutina();
-                        break;
-                case 2: 
-                        Ejercicio ejercicioAux=new Ejercicio();
-                        RutinaGeneral aux2= new RutinaGeneral();
-                        ejercicioAux=aux2.agregarEjercicios();
-                        agregarEjercicioRutina(ejercicioAux);
-                        break;
-                default: System.out.println("Opción incorrecta");
-           }
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);        
-        }*/
-        //se quita el menú porque eso ya se manejará desde mi servlet
-    }
-    
     public  boolean agregarRutina(Rutina rutinaX,String tipoRutina){
         //primero construyo mi rutina y luego ya la agrego a la bd
-        
-        
         
         String rutina= "Rutina General";
         if(rutina.equalsIgnoreCase(tipoRutina)){
@@ -67,16 +44,7 @@ public class GestorRutina {
                 //comenzamos a pedir los ejercicios de dicha rutina:
                 
                 rg.visualizaRutina(ejercicios,rutinaGeneral);
-                //agregar los ejercicios a la bd
-                
-                /*
-                agregar=tr.agregarEjercicio(rutinaGeneral.agregarEjercicios());
-                if(agregar){
-                System.out.println("Ejercicios agregados");
-                }
-                else{
-                System.out.println("Valio pito :v");
-                }*/
+                System.out.println("Se agrego la rutina");
             }
             else{
                 System.out.println("No se agrego la rutina :");
@@ -88,20 +56,57 @@ public class GestorRutina {
         }
         return true;
     }
-    public  boolean modificarRutina(Rutina rutina){
-        //con Rutina voy modificando cada uno de los ejercicios
-        return true;
+    public  boolean modificarRutina(RutinaGeneral rutinaG,String nombR){
+        
+        /*
+        if(tr.modificarRutinaGeneral(rutinaG)){
+            System.out.println("Se modifico la rutina: GestorRutina");
+         return true;
+        
+        }
+        else{
+            System.out.println("No se modifico la rutina");
+            return false;
+        }*/
+        
+        if(tr.modificarRutinaGeneral2(rutinaG, nombR)){
+            System.out.println("estamos en el gestor y a ver si si se modifica :V");
+            return true;
+        }
+        else{
+            return false;
+        }
     }
-    public  boolean eliminarRutina(Rutina rutina){
-        return true;
+    public  boolean eliminarRutina(String nombreR){
+        
+        if(tr.eliminarRutina(nombreR)){
+            System.out.println("RUTINA ELIMINADA :v");
+            return true;
+        }
+        else{
+            System.out.println("Rutina no eliminada");
+            return false;
+        }
     }
-    public  boolean buscarRutina(Rutina rutina){
-        //cuando me conecte a la base de datos voy a buscar rutina por nombre y regresar
-        return true;
+    public  RutinaGeneral buscarRutina(String id){
+       
+        RutinaGeneral aux= null;
+        aux=tr.cargarInfoRutinaGeneral(id);
+        System.out.println("CHECANDO SI JALA LOS DATOS");
+        System.out.println("nombre" + aux.getNombre());
+        System.out.println("seccion" + aux.getSeccion());
+        System.out.println("Tipo rutina" + aux.getTipoRutina());
+        return aux;
+         
     }
-    public void buscarRutinas (){
-        //aquí accede a la BD y saca todas las rutinas
+    
+    
+    public ArrayList buscarRutinas (){
+       return tr.buscarRutinasGenerales();
     }
+    
+    
+    
     public boolean agregarEjercicioRutina(Ejercicio ejercicio){
          
          boolean agregar;

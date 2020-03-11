@@ -17,14 +17,14 @@ public class TablaRutinas {
     //comenzamos con los métodos
     ResultSet rs;
     //llamamos a nuestra clase Conexión para poder realizar conexión a bd
-    ConexionUsuarios cn = new ConexionUsuarios();
+    Conexion cn = new Conexion();
     Connection conec = null;
     RutinaGeneral rg = new RutinaGeneral();
 
     public boolean agregarRutinaGeneral(RutinaGeneral rutinaG) {
 
         PreparedStatement ps = null;
-        conec = ConexionUsuarios.getCon();
+        conec = Conexion.getCon();
 
         String sql = "INSERT INTO RutinaGeneral (nombreRutina,seccion,tipoRutina,imagen,comentarios) VALUES(?,?,?,?,?)";
         //se mandan los datos

@@ -9,43 +9,52 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import MODEL.GestionUsuarios.Usuario;
 import MODEL.GestionUsuarios.Administrador;
+import DB.TablaAdministrador;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
  * @author Alex Lira
  */
-@WebServlet(name = "ServletAgregarUsuarioAdmin", urlPatterns = {"/ServletAgregarUsuarioAdmin"})
-public class ServletAgregarUsuarioAdmin extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+@WebServlet(name = "ServletAgregarUsuarioAdmin", urlPatterns = {"/ServletAgregarUsuarioAdmin"})
+
+public class ServletAgregarUsuarioAdmin extends HttpServlet {
+    
+    String agregarAdmin="web/agregarUsuarioAdmin.jsp";
+    String eliminarAdmin="web/eliminarUsuarioAdmin.jsp";
+    String modificarAdmin="web/modificarUsuarioAdmin.jsp";
+    Usuario usu = new Usuario();
+    Administrador admin = new Administrador();
+           
+        protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            /*out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletGUIAgregarSocio</title>");            
+            out.println("<title>Servlet socios</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletGUIAgregarSocio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet socios at " + request.getContextPath() + "</h1>");
             out.println("</body>");
-            out.println("</html>");*/
-            
+            out.println("</html>");
+        }
+    }
+
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {        
+        String acceso ="";
+        String action = request.getParameter("accion");               
+        
+        if(action.equalsIgnoreCase("agregarAdmin")){
             //SE RECUPERAN LOS DATOS DEL OBJETO "request"
             //ESTOS DATOS FUERON ENVIADOS DESDE LA PÁGINA "agregarUsuario.jsp"
-            //CON EL MÉTODO "post"
-            
+            //CON EL MÉTODO "post"            
             String nombre= request.getParameter("nombre");            
             String apellidoP= request.getParameter("aPaterno");
             String apellidoM= request.getParameter("aMaterno");            
@@ -60,47 +69,23 @@ public class ServletAgregarUsuarioAdmin extends HttpServlet {
             String telefono= request.getParameter("telefono");            
             double tel=Double.parseDouble(telefono);
             
-            //SE CREA UNA INSTANCIA DE LA CLASE "Administrador" Y SE INICIALIZA CON 
-            //LOS DATOS RECUPERADOS PREVIAMENTE DEL OBJETO "request"
-            Administrador usuarioAdmin = new Administrador (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU, direccion, tel);
-            Usuario usuario = new Usuario (nombre, apellidoP, apellidoM, ed, sexo, nombreU, password, correo, tipoU);
-            
-            //EN EL OBJETO  "request" SE ALMACENA EL OBJETO "datosAdministrador y datosEntrenador" EN EL ATRIBUTO
-            //NOMBRADO "usuarioAdmin y usuarioEntrena", EL CUAL SE CREA EN ESE MOMENTO
-            request.setAttribute("datosAdministrador",usuarioAdmin);            
-            request.setAttribute("datosUsuario",usuario);
-            
-            //AHORA SE HACE UN REENVÍO (forward) DE LOS OBJETOS "request" Y "response"
-            //A LA PÁGINA "visualizaDatosUsuario.jsp"
-            request.getRequestDispatcher("/visualizaDatosAdmin.jsp").forward(request, response);
-        } finally {
-            out.close();
-            }
+            usu.setNombre(nombre); 
+            usu.setApellidoP(apellidoP);
+            usu.setApellidoM(apellidoM);
+            usu.setEdad(ed);
+            usu.setSex(sexo);
+            usu.setNombreU(nombreU);
+            usu.setPaswordU(password);
+            usu.setCorreo(correo);
+            usu.setTipoU(tipoU);
+            admin.setDireccion(direccion);
+            admin.setTelefono(tel);
+        }
+                       
+        RequestDispatcher vista=request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

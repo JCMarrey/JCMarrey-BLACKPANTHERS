@@ -63,7 +63,7 @@
                 <input type="text" id="direccion" name="direccion"><br><br>
                 <label for="lname">Telefono:</label>
                 <input type="text" id="telefono" name="telefono"><br><br>                
-                <button type="submit">Registrar</button>                
+                <button type="submit" name="accion" value="agregarAdmin">Registrar</button>                
             </form> 
         
         <!--FooterGeneral-->
